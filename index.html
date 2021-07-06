@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/tailwind.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <title>Test Tailwind</title>
+</head>
+
+<body>
+
+    <div class="container mx-auto bg-green-600 md:relative " x-data="{ isOpen: false }"
+        @keydown.escape="isOpen = false">
+
+        <div class="mr-2 ml-2 flex flex-row justify-between">
+            <div class="py-3">logo</div>
+            <div class="md:hidden py-3" @click="isOpen = !isOpen">
+                <div x-data="{ open: false }"> <button
+                        class="w-12 h-12 relative focus:outline-none bg-green-600 rounded" @click="open = !open">
+                        <div class="block w-5 absolute left-6 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <span
+                                class="block absolute h-0.5 w-6 text-white bg-current transform transition duration-500 ease-in-out"
+                                :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span> <span
+                                class="block absolute h-0.5 w-3 text-white bg-current transform transition duration-500 ease-in-out"
+                                :class="{'opacity-0': open } "></span> <span
+                                class="block absolute h-0.5 w-6 text-white bg-current transform transition duration-500 ease-in-out"
+                                :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span> </div>
+                    </button> </div>
+            </div>
+
+
+
+        </div>
+
+        <ul class="hidden md:flex md:absolute md:top-3 md:right-10" :class="{'md:block': isOpen, 'hidden': !isOpen }"
+            @click.away="isOpen = false">
+            <li class="md:mr-10"><a href="">menu1</a></li>
+            <li class="md:mr-10"><a href="">menu2</a></li>
+            <li class="md:mr-10"><a href="">menu3</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
